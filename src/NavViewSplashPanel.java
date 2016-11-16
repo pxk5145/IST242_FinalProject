@@ -1,10 +1,6 @@
 
 import javax.swing.*;
 
-/**
- *
- * @author jrimland
- */
 public class NavViewSplashPanel extends JPanel{
     JButton splashButton;
     JLabel optionsLabel;

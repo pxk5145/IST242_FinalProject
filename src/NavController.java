@@ -1,9 +1,3 @@
-/**
- *
- *  The Nav Controller handles logic to switch between Views
- * 
- * @author jrimland
- */
 
 
 import java.awt.event.ActionEvent;

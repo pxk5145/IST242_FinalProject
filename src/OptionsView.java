@@ -5,10 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 
-/**
- *
- * @author jrimland-air
- */
+
 public class OptionsView extends JPanel{
         JButton retButton;
         JTextField playerName;

@@ -2,13 +2,6 @@
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
-
-/**
- *
- *  The Nav View exposes methods to the Nav Controller that allow it to switch panels
- * 
- * @author jrimland
- */
 public class NavView extends JFrame{
     
     NavModel model;

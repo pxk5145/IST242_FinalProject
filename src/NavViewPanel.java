@@ -2,10 +2,6 @@
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
-/**
- *
- * @author jrimland
- */
 public class NavViewPanel extends JPanel{
 
     NavViewBottomMenuPanel menu;
