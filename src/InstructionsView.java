@@ -8,7 +8,7 @@ public class InstructionsView extends JPanel{
     
     InstructionsView ()
     {
-        instructions = new JLabel("These are the instructions.");
+        instructions = new JLabel("These are the instructions. Use controls.");
         add(instructions);
     }
     
