@@ -19,6 +19,8 @@ public class NavController {
     
     InstructionsView i_view;
     
+    CreditsView c_view;
+    
     public NavController(NavModel n_model, NavView n_view ) {
         this.n_model = n_model;
         this.n_view = n_view;
@@ -30,11 +32,13 @@ public class NavController {
         m_view = new MainView();
         
         i_view = new InstructionsView();
+        
+        c_view = new CreditsView();
                 
         n_view.addOptionsButtonListener(new OptionsButtonListener());
         n_view.addMainButtonListener(new MainButtonListener());
         n_view.addInstructionsButtonListener(new InstructionsButtonListener());
-        
+        n_view.addCreditsButtonListener(new CreditsButtonListner());
     }
     class OptionsButtonListener implements ActionListener {            
         public void actionPerformed(ActionEvent e)
@@ -56,6 +60,13 @@ public class NavController {
         public void actionPerformed (ActionEvent e)
         {
             n_view.switchToInstructionsPanel(i_view);
+        }
+    }
+    
+    class CreditsButtonListner implements ActionListener {
+        public void actionPerformed (ActionEvent e)
+        {
+            n_view.switchToCreditsPanel(c_view);
         }
     }
     
