@@ -4,10 +4,12 @@ import javax.swing.JLabel;
 
 
 public class InstructionsView extends JPanel{
+    JLabel instructions;
     
     InstructionsView ()
     {
-        //this is a change.
+        instructions = new JLabel("These are the instructions.");
+        add(instructions);
     }
     
 }
