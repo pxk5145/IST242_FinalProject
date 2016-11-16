@@ -4,7 +4,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-public class CreditsView {
+public class CreditsView extends JPanel{
     
     private JLabel title;
     private JLabel name1;
@@ -19,12 +19,11 @@ public class CreditsView {
         name3 = new JLabel("Shawn Foreman");
         GridLayout grid = new GridLayout(4,1);
         
-        JPanel content = new JPanel();
-        content.setLayout(grid);
-        content.add(title);
-        content.add(name1);
-        content.add(name2);
-        content.add(name3);
+        setLayout(grid);
+        add(title);
+        add(name1);
+        add(name2);
+        add(name3);
         
     }
 }
