@@ -12,7 +12,7 @@ public class InstructionsView extends JPanel{
         setLayout(new BorderLayout());
         
         instructions = new JLabel("These are the instructions. Use controls.");
-        add(instructions, BorderLayout.CENTER);
+        add(instructions, BorderLayout.EAST);
     }
     
 }
