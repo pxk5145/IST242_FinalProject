@@ -9,6 +9,7 @@ public class NavViewPanel extends JPanel{
     
     OptionsView o_view;
     MainView m_view;
+    InstructionsView i_view;
     
     public NavViewPanel() {
         super();
@@ -22,6 +23,13 @@ public class NavViewPanel extends JPanel{
     
     //Note: Splash scrren is only shown on startup.  No need to navigate back to it.
     
+    public void addInstructions(InstructionsView i_view)
+    {
+        this.i_view = i_view;
+        add(i_view, BorderLayout.CENTER);
+        revalidate();
+        repaint();
+    }
     
     public void addOptions(OptionsView o_view)
     {
@@ -46,6 +54,11 @@ public class NavViewPanel extends JPanel{
         repaint();
     }
     
+    public void removeInstructions()
+    {
+        if (this.i_view != null)
+            remove(this.i_view);
+    }
     
     public void removeOptions()
     {
