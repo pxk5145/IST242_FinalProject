@@ -4,13 +4,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
+import java.awt.event.*;
 
 
 public class OptionsView extends JPanel{
-        JButton retButton;
-        JTextField playerName;
-        JLabel EnterDiff;
-        JSlider difficulty;
+        private JButton retButton;
+        private JTextField playerName;
+        private JLabel EnterDiff;
+        private JSlider difficulty;
         
         OptionsModel o_model;
         
@@ -29,12 +30,32 @@ public class OptionsView extends JPanel{
 
             // It may be useful to have a Save & Return button
             
-            //retButton = new JButton("Save and Return");
+            retButton = new JButton("Save and Return");
 
             add(playerName);
             add(EnterDiff);
             add(difficulty);
 
-            //add(retButton);               
+            add(retButton);               
+        }
+        
+        public void addButtonListener(ActionListener al) 
+        {
+        retButton.addActionListener(al);
+        }
+        
+        public JButton getretButton()
+        {
+            return this.retButton;
+        }
+        
+        public String getPlayerName()
+        {
+            return this.playerName.getText();
+        }
+        
+        public int getDifficulty()
+        {
+            return this.difficulty.getValue();
         }
 }
