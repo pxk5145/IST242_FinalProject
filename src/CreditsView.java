@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,12 +14,16 @@ public class CreditsView extends JPanel{
     
     CreditsView()
     {
+       setBackground(Color.BLACK);
         title = new JLabel ("Creators:");
         name1 = new JLabel("Philip Kong");
         name2 = new JLabel("Robert Donohoe");
         name3 = new JLabel("Shawn Foreman");
         GridLayout grid = new GridLayout(4,1);
-        
+        title.setForeground(Color.WHITE);
+        name1.setForeground(Color.WHITE);
+        name2.setForeground(Color.WHITE);
+        name3.setForeground(Color.WHITE);
         setLayout(grid);
         add(title);
         add(name1);
