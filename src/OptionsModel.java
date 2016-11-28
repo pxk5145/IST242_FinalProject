@@ -1,7 +1,7 @@
 
 public class OptionsModel {
-    String playerName;
-    int difficulty;
+    String userName;
+    int difficultyOP;
     
     OptionsModel()
     {
@@ -10,21 +10,21 @@ public class OptionsModel {
     
     public void setPlayerName(String Name)
     {
-        this.playerName = playerName;
+        this.userName = userName;
     }
     
     public void setDifficulty(int num)
     {
-        this.difficulty = difficulty;
+        this.difficultyOP = difficultyOP;
     }
     
     public String grabPlayerName()
     {
-        return this.playerName;
+        return this.userName;
     }
     
     public int grabDifficulty()
     {
-        return this.difficulty;
+        return this.difficultyOP;
     }
 }
