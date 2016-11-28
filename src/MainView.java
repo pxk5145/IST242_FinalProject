@@ -8,6 +8,7 @@ public class MainView extends JPanel{
     
     JLabel playerText;
     JLabel diffText;
+    JLabel livesText;
     MainView(OptionsModel o_model)
     {
         this.o_model = o_model;
@@ -20,6 +21,9 @@ public class MainView extends JPanel{
         
         diffText = new JLabel("");
         add(diffText);
+        
+        livesText = new JLabel("");
+        add(livesText);
     }
     
     public void setPlayerText(String name)
@@ -30,5 +34,10 @@ public class MainView extends JPanel{
     public void setDiff(int num)
     {
         diffText.setText("Difficulty: " + num);
+    }
+    
+    public void setLives(int num)
+    {
+        livesText.setText("# of Lives: " + num);
     }
 }

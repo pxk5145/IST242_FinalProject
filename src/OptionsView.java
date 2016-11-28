@@ -11,6 +11,8 @@ public class OptionsView extends JPanel{
         private JTextField playerName;
         private JLabel EnterDiff;
         private JSlider difficulty;
+        private JSlider playerLives;
+        private JLabel EnterLives;
         
         OptionsModel o_model;
         
@@ -26,13 +28,21 @@ public class OptionsView extends JPanel{
             difficulty.setPaintTicks(true);
 
             EnterDiff = new JLabel("  Enter Difficulty:");
+            
+            EnterLives = new JLabel("Enter # of Lives: ");
+            playerLives = new JSlider(JSlider.HORIZONTAL, 1,10,5);
+            playerLives.setMajorTickSpacing(1);
+            playerLives.setPaintLabels(true);
+            playerLives.setPaintTicks(true);
 
             // It may be useful to have a Save & Return button
             
             
             add(playerName);
             add(EnterDiff);
-            add(difficulty);  
+            add(difficulty);
+            add(EnterLives);
+            add(playerLives);
         }
              
         
@@ -44,5 +54,10 @@ public class OptionsView extends JPanel{
         public int getDifficulty()
         {
             return this.difficulty.getValue();
+        }
+        
+        public int getLives()
+        {
+            return this.playerLives.getValue();
         }
 }

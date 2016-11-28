@@ -55,6 +55,7 @@ public class NavController {
             n_view.switchToMainPanel(m_view);
             m_view.setPlayerText(o_view.getPlayerName());
             m_view.setDiff(o_view.getDifficulty());
+            m_view.setLives(o_view.getLives());
         }
     }
     
