@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,6 +30,11 @@ public class CreditsView extends JPanel{
         add(name1);
         add(name2);
         add(name3);
+        
+        title.setFont(new Font("Arial", Font.BOLD, 45));
+        name1.setFont(new Font("Arial", Font.PLAIN, 35));
+        name2.setFont(new Font("Arial", Font.PLAIN, 35));
+        name3.setFont(new Font("Arial", Font.PLAIN, 35));
         
     }
 }
