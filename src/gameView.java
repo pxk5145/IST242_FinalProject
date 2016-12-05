@@ -31,13 +31,16 @@ public class gameView extends JPanel{
 
     private final String RIGHT_PRESSED = "move right";
     private final String MOVE_LEFT = "move left";
+    private final String Z_PRESSED = "Z pressed";
 
     // Movements
     public final int RIGHT = 2;
     public final int LEFT = 3;
+    public final int Z = 4;
 
     private final JLabel button;
     
+    Projectile projectile;
     private Timer Timer;
     public Color palette;
 
@@ -47,6 +50,8 @@ public class gameView extends JPanel{
         palette = new Color(255,222,154);
         setBackground(palette);
         setLayout(null);
+        
+        projectile = new Projectile();
 
         // Configuring button
         button = new JLabel(new ImageIcon("src/images/Player.png"));
@@ -58,11 +63,13 @@ public class gameView extends JPanel{
 
         button.getInputMap(IFW).put(KeyStroke.getKeyStroke("RIGHT"), RIGHT_PRESSED);
         button.getInputMap(IFW).put(KeyStroke.getKeyStroke("LEFT"), MOVE_LEFT);
+        button.getInputMap(IFW).put(KeyStroke.getKeyStroke("Z"), Z_PRESSED);
 
         // - Action maps
 
         button.getActionMap().put(RIGHT_PRESSED, new MoveAction(RIGHT));
         button.getActionMap().put(MOVE_LEFT, new MoveAction(LEFT));
+        button.getActionMap().put(Z_PRESSED, new MoveAction(Z));
     }
 
     private class MoveAction extends AbstractAction {
@@ -114,6 +121,9 @@ public class gameView extends JPanel{
             }
             if(direction == LEFT && button.getLocation().x > 25) {
                 button.setLocation(button.getLocation().x - speed, button.getLocation().y);
+            }
+            if(direction == Z){
+                button.setLocation(button.getLocation().x, button.getLocation().y - speed);
             }
         }
     }

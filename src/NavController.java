@@ -29,7 +29,7 @@ public class NavController {
         o_view = new OptionsView(o_model);
         o_Controller = new OptionsController(o_model, o_view); 
         
-        m_view = new MainView(o_model);
+        m_view = new MainView();
         
         i_view = new InstructionsView();
         
