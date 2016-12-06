@@ -2,6 +2,7 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
@@ -41,6 +42,8 @@ public class gameView extends JPanel{
     private final JLabel button;
     
     Projectile projectile;
+    
+    public ArrayList<Projectile> shots = new ArrayList<Projectile>();
     private Timer Timer;
     public Color palette;
 
