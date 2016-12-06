@@ -18,7 +18,7 @@ public class InstructionsView extends JPanel{
         instruct2 = new JLabel("The objective of the game is to move");
         instruct3 = new JLabel("through the hallway without being attacked");
         instruct4 = new JLabel("by the incoming zombies. Use arrow keys");
-        instruct5 = new JLabel("to move left and right and the spacebar ");
+        instruct5 = new JLabel("to move left and right and the the Z key ");
         instruct6 = new JLabel("to shoot.");
         
         instructions.setForeground(Color.GREEN);
