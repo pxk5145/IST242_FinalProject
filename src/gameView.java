@@ -2,6 +2,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.AbstractAction;
@@ -40,7 +41,11 @@ public class gameView extends JPanel{
     public final int LEFT = 3;
     public final int Z = 4;
 
-    private final JLabel button;
+    private final JLabel Player;
+    private final JLabel zombie;
+    
+    public Rectangle p;
+    public Rectangle z;
     
     Projectile projectile;
     
@@ -58,24 +63,31 @@ public class gameView extends JPanel{
         
         projectile = new Projectile();
 
-        // Configuring button
-        button = new JLabel(new ImageIcon("src/images/Player.png"));
-        button.setBounds(300, 300, 120, 75);
-        button.setLocation(275,515);
-        add(button);
+        // Configuring Player
+        Player = new JLabel(new ImageIcon("src/images/Player.png"));
+        zombie = new JLabel(new ImageIcon("src/images/zombie.png"));
+        p = new Rectangle(300,300, 120, 75);
+        z = new Rectangle(25,300,120,75);
+        
+        Player.setBounds(300, 300, 120, 75);
+        zombie.setBounds(300, 300, 120, 75);
+        Player.setLocation(275,515);
+        zombie.setLocation(50, 515);
+        add(Player);
+        add(zombie);
 
         // .: Key bindings :.
         // - Input maps
 
-        button.getInputMap(IFW).put(KeyStroke.getKeyStroke("RIGHT"), RIGHT_PRESSED);
-        button.getInputMap(IFW).put(KeyStroke.getKeyStroke("LEFT"), MOVE_LEFT);
-        button.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), projectile);
+        Player.getInputMap(IFW).put(KeyStroke.getKeyStroke("RIGHT"), RIGHT_PRESSED);
+        Player.getInputMap(IFW).put(KeyStroke.getKeyStroke("LEFT"), MOVE_LEFT);
+        Player.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), projectile);
 
         // - Action maps
 
-        button.getActionMap().put(RIGHT_PRESSED, new MoveAction(RIGHT));
-        button.getActionMap().put(MOVE_LEFT, new MoveAction(LEFT));
-        button.getActionMap().put(Z_PRESSED, new MoveAction(Z));
+        Player.getActionMap().put(RIGHT_PRESSED, new MoveAction(RIGHT));
+        Player.getActionMap().put(MOVE_LEFT, new MoveAction(LEFT));
+        Player.getActionMap().put(Z_PRESSED, new MoveAction(Z));
     }
 
     private class MoveAction extends AbstractAction {
@@ -122,14 +134,20 @@ public class gameView extends JPanel{
         @Override
         public void actionPerformed(ActionEvent e) {
             
-            if(direction == RIGHT && button.getLocation().x < 525) {
-                button.setLocation(button.getLocation().x + speed, button.getLocation().y);
+            if(direction == RIGHT && Player.getLocation().x < 525) {
+                Player.setLocation(Player.getLocation().x + speed, Player.getLocation().y);
+                p.setLocation(p.getLocation().x + speed, p.getLocation().y);
             }
-            if(direction == LEFT && button.getLocation().x > 25) {
-                button.setLocation(button.getLocation().x - speed, button.getLocation().y);
+            if(direction == LEFT && Player.getLocation().x > 25) {
+                Player.setLocation(Player.getLocation().x - speed, Player.getLocation().y);
+                p.setLocation(p.getLocation().x - speed, p.getLocation().y);
             }
             if(direction == Z){
-                button.setLocation(button.getLocation().x, button.getLocation().y - speed);
+                Player.setLocation(Player.getLocation().x, Player.getLocation().y - speed);
+            }
+            if(p.intersects(z) && Player.isVisible())
+            {
+                Player.setVisible(false);
             }
         }
     }
