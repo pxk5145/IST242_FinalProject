@@ -155,7 +155,7 @@ public class MainView extends JPanel{
                 if (livesVal > 0){
                     Player.setLocation(275,515);
                     Player.setVisible(true);
-                    p.setLocation(275,515);
+                    p.setLocation(300,300);
                     livesVal--;
                     setLives(livesVal);
                 }
