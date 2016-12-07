@@ -1,6 +1,6 @@
 
+import java.awt.Font;
 import java.awt.GridLayout;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
@@ -9,6 +9,7 @@ import java.awt.event.*;
 
 
 public class OptionsView extends JPanel{
+        private JLabel EnterPlayer;
         private JTextField playerName;
         private JLabel EnterDiff;
         private JSlider difficulty;
@@ -21,8 +22,9 @@ public class OptionsView extends JPanel{
             this.o_model = o_model;      
             GridLayout grid = new GridLayout(3,1);
             setLayout(grid);
+            EnterPlayer = new JLabel("Enter Player Name: ");
+            playerName = new JTextField();
             
-            playerName = new JTextField("--Enter Player Name--");
             
             difficulty = new JSlider(JSlider.HORIZONTAL, 1,10,5);
             difficulty.setMajorTickSpacing(1);
@@ -30,7 +32,7 @@ public class OptionsView extends JPanel{
             difficulty.setPaintTicks(true);
 
 
-            EnterDiff = new JLabel("  Enter Difficulty:");
+            EnterDiff = new JLabel("Enter Difficulty:");
             
             EnterLives = new JLabel("Enter # of Lives: ");
             playerLives = new JSlider(JSlider.HORIZONTAL, 1,10,5);
@@ -39,8 +41,12 @@ public class OptionsView extends JPanel{
             playerLives.setPaintTicks(true);
 
             // It may be useful to have a Save & Return button
+            EnterPlayer.setFont(new Font("Arial", Font.PLAIN, 35));
+            EnterDiff.setFont(new Font("Arial", Font.PLAIN, 35));
+            EnterLives.setFont(new Font("Arial", Font.PLAIN, 35));
+            playerName.setFont(new Font("Arial", Font.PLAIN, 30));
             
-            
+            add(EnterPlayer);
             add(playerName);
             add(EnterDiff);
             add(difficulty);
