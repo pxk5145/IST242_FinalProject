@@ -1,4 +1,5 @@
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -49,7 +50,8 @@ public class gameView extends JPanel{
 
     public gameView() {
         // Panel properties
-
+        
+        setSize(300, 300);
         palette = new Color(255,222,154);
         setBackground(palette);
         setLayout(null);
@@ -58,7 +60,8 @@ public class gameView extends JPanel{
 
         // Configuring button
         button = new JLabel(new ImageIcon("src/images/Player.png"));
-        button.setBounds(300, 300, 40, 75);
+        button.setBounds(300, 300, 120, 75);
+        button.setLocation(275,515);
         add(button);
 
         // .: Key bindings :.
@@ -66,7 +69,7 @@ public class gameView extends JPanel{
 
         button.getInputMap(IFW).put(KeyStroke.getKeyStroke("RIGHT"), RIGHT_PRESSED);
         button.getInputMap(IFW).put(KeyStroke.getKeyStroke("LEFT"), MOVE_LEFT);
-        button.getInputMap(IFW).put(KeyStroke.getKeyStroke("Z"), Z_PRESSED);
+        button.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), projectile);
 
         // - Action maps
 

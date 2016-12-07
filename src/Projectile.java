@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import javax.swing.JButton;
 
 
@@ -15,7 +16,14 @@ public class Projectile extends gameModel{
     public Projectile(int x, int y)
     {
         shot = new JButton("");
+        shot.setBackground(Color.BLACK);
         setX(x + H_space);
         setY(y - V_space);
     }
+    
+    public void shootProjectile()
+    {
+        
+    }
+    
 }

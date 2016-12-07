@@ -13,19 +13,19 @@ public class OptionsView extends JPanel{
         private JSlider difficulty;
         private JSlider playerLives;
         private JLabel EnterLives;
-        
         OptionsModel o_model;
         
         OptionsView(OptionsModel o_model)
         {
-            this.o_model = o_model;
-                   
+            this.o_model = o_model;      
             
             playerName = new JTextField("--Enter Player Name--");
+            
             difficulty = new JSlider(JSlider.HORIZONTAL, 1,10,5);
             difficulty.setMajorTickSpacing(1);
             difficulty.setPaintLabels(true);
             difficulty.setPaintTicks(true);
+
 
             EnterDiff = new JLabel("  Enter Difficulty:");
             

@@ -17,7 +17,8 @@ public class MainView extends JPanel{
         setLayout(new BorderLayout());     
         view = new gameView();
         
-        add(view, BorderLayout.CENTER);        
+        add(view, BorderLayout.CENTER);
+        view.setSize(300, 300);
         
         playerText = new JLabel("");
         add(playerText,BorderLayout.NORTH);
