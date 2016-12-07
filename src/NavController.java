@@ -53,6 +53,8 @@ public class NavController {
         {            
             //Pass a Main View object to our Navigation View
             n_view.switchToMainPanel(m_view);
+            m_view.setdiffVal(o_view.getDifficulty());
+            m_view.setlivesVal(o_view.getLives());
             m_view.setPlayerText(o_view.getPlayerName());
             m_view.setDiff(o_view.getDifficulty());
             m_view.setLives(o_view.getLives());

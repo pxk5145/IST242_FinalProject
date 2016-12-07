@@ -34,7 +34,6 @@ public class MainView extends JPanel{
 
     private final String RIGHT_PRESSED = "move right";
     private final String MOVE_LEFT = "move left";
-    private final String Z_PRESSED = "Z pressed";
 
     // Movements
     public final int RIGHT = 2;
@@ -44,19 +43,15 @@ public class MainView extends JPanel{
     private final JLabel Player;
     private final JLabel zombie;
     
-    public Rectangle p;
-    public Rectangle z;
+    private Rectangle p;
+    private Rectangle z;
     
-    Projectile projectile;
+    private int diffVal;
+    private int livesVal;
+    private JLabel playerText;
+    private JLabel diffText;
+    private JLabel livesText;
     
-    public String playerName;
-    public int diffVal;
-    public int livesVal;
-    public JLabel playerText;
-    public JLabel diffText;
-    public JLabel livesText;
-    
-    public ArrayList<Projectile> shots = new ArrayList<Projectile>();
     private Timer Timer;
     public Color palette;
 
@@ -76,8 +71,6 @@ public class MainView extends JPanel{
         
         livesText = new JLabel("");
         add(livesText,Border.EAST);
-        
-        projectile = new Projectile();
 
         // Configuring Player
         Player = new JLabel(new ImageIcon("src/images/Player.png"));
@@ -97,13 +90,11 @@ public class MainView extends JPanel{
 
         Player.getInputMap(IFW).put(KeyStroke.getKeyStroke("RIGHT"), RIGHT_PRESSED);
         Player.getInputMap(IFW).put(KeyStroke.getKeyStroke("LEFT"), MOVE_LEFT);
-        Player.getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), projectile);
 
         // - Action maps
 
         Player.getActionMap().put(RIGHT_PRESSED, new MoveAction(RIGHT));
         Player.getActionMap().put(MOVE_LEFT, new MoveAction(LEFT));
-        Player.getActionMap().put(Z_PRESSED, new MoveAction(Z));
     }
 
     private class MoveAction extends AbstractAction {
@@ -158,9 +149,6 @@ public class MainView extends JPanel{
                 Player.setLocation(Player.getLocation().x - speed, Player.getLocation().y);
                 p.setLocation(p.getLocation().x - speed, p.getLocation().y);
             }
-            if(direction == Z){
-                Player.setLocation(Player.getLocation().x, Player.getLocation().y - speed);
-            }
             if(p.intersects(z) && Player.isVisible())
             {
                 Player.setVisible(false);
@@ -175,11 +163,7 @@ public class MainView extends JPanel{
         }
     }
 
-    public void setPlayerName(String name)
-    {
-        playerName = name;
-    }
-    
+   
     public void setdiffVal(int num)
     {
         diffVal = num;
