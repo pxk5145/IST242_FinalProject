@@ -66,8 +66,8 @@ public class gameView extends JPanel{
         // Configuring Player
         Player = new JLabel(new ImageIcon("src/images/Player.png"));
         zombie = new JLabel(new ImageIcon("src/images/zombie.png"));
-        p = new Rectangle(300,300, 120, 75);
-        z = new Rectangle(25,300,120,75);
+        p = new Rectangle(300,300, 100, 75);
+        z = new Rectangle(25,300,90,75);
         
         Player.setBounds(300, 300, 120, 75);
         zombie.setBounds(300, 300, 120, 75);
