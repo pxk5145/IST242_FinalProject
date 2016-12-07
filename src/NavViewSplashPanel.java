@@ -7,10 +7,6 @@ public class NavViewSplashPanel extends JPanel{
     NavViewSplashPanel()
     {
             splashButton = new JButton(new ImageIcon("src/images/game_template.png"));            
-            add(splashButton);
-            
-            optionsLabel = new JLabel("No options selected yet.");
-            add(optionsLabel);
-            
+            add(splashButton);            
     }    
 }
