@@ -62,7 +62,6 @@ public class MainView extends JPanel{
 
     public MainView() {
         // Panel properties
-        
         setSize(300, 300);
         palette = new Color(255,222,154);
         setBackground(palette);
@@ -165,13 +164,31 @@ public class MainView extends JPanel{
             if(p.intersects(z) && Player.isVisible())
             {
                 Player.setVisible(false);
-                Player.setLocation(275,515);
-                Player.setVisible(true);
-                p.setLocation(275,515);
+                if (livesVal > 0){
+                    Player.setLocation(275,515);
+                    Player.setVisible(true);
+                    p.setLocation(275,515);
+                    livesVal--;
+                    setLives(livesVal);
+                }
             }
         }
     }
 
+    public void setPlayerName(String name)
+    {
+        playerName = name;
+    }
+    
+    public void setdiffVal(int num)
+    {
+        diffVal = num;
+    }
+    
+    public void setlivesVal(int num)
+    {
+        livesVal = num;
+    }
     
     public void setPlayerText(String name)
     {
