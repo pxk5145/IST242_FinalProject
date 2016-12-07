@@ -1,4 +1,5 @@
 
+import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,6 +19,8 @@ public class OptionsView extends JPanel{
         OptionsView(OptionsModel o_model)
         {
             this.o_model = o_model;      
+            GridLayout grid = new GridLayout(3,1);
+            setLayout(grid);
             
             playerName = new JTextField("--Enter Player Name--");
             
