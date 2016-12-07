@@ -49,6 +49,9 @@ public class MainView extends JPanel{
     
     Projectile projectile;
     
+    public String playerName;
+    public int diffVal;
+    public int livesVal;
     public JLabel playerText;
     public JLabel diffText;
     public JLabel livesText;
@@ -63,16 +66,17 @@ public class MainView extends JPanel{
         setSize(300, 300);
         palette = new Color(255,222,154);
         setBackground(palette);
-        setLayout(null);
+        BorderLayout Border = new BorderLayout();
+        setLayout(Border);
         
-                playerText = new JLabel("");
-        add(playerText);
+        playerText = new JLabel("");
+        add(playerText,Border.NORTH);
         
         diffText = new JLabel("");
-        add(diffText);
+        add(diffText,Border.WEST);
         
         livesText = new JLabel("");
-        add(livesText);
+        add(livesText,Border.EAST);
         
         projectile = new Projectile();
 
@@ -161,6 +165,9 @@ public class MainView extends JPanel{
             if(p.intersects(z) && Player.isVisible())
             {
                 Player.setVisible(false);
+                Player.setLocation(275,515);
+                Player.setVisible(true);
+                p.setLocation(275,515);
             }
         }
     }
