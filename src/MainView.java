@@ -57,7 +57,7 @@ public class MainView extends JPanel{
 
     public MainView() {
         // Panel properties
-        setSize(300, 300);
+        setSize(600, 600);
         palette = new Color(255,222,154);
         setBackground(palette);
         BorderLayout Border = new BorderLayout();
@@ -81,7 +81,7 @@ public class MainView extends JPanel{
         Player.setBounds(300, 300, 120, 75);
         zombie.setBounds(300, 300, 120, 75);
         Player.setLocation(275,515);
-        zombie.setLocation(50, 515);
+        zombie.setLocation(300, 300);
         add(Player);
         add(zombie);
 
@@ -141,11 +141,11 @@ public class MainView extends JPanel{
         @Override
         public void actionPerformed(ActionEvent e) {
             
-            if(direction == RIGHT && Player.getLocation().x < 525) {
+            if(direction == RIGHT && Player.getLocation().x < 575) {
                 Player.setLocation(Player.getLocation().x + speed, Player.getLocation().y);
                 p.setLocation(p.getLocation().x + speed, p.getLocation().y);
             }
-            if(direction == LEFT && Player.getLocation().x > 25) {
+            if(direction == LEFT && Player.getLocation().x > 0) {
                 Player.setLocation(Player.getLocation().x - speed, Player.getLocation().y);
                 p.setLocation(p.getLocation().x - speed, p.getLocation().y);
             }
@@ -187,6 +187,15 @@ public class MainView extends JPanel{
     public void setLives(int num)
     {
         livesText.setText("# of Lives: " + num);
+    }
+    
+    public int randX()
+    {
+       int x = (int) Math.random() + 1;
+       int x2 = (int) Math.random() + 1;
+       int x3 = (int) Math.random() + 1;
+       
+       return x;
     }
 
 }
