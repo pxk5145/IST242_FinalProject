@@ -53,7 +53,7 @@ public class MainView extends JPanel implements ActionListener{
     private JLabel playerText;
     private JLabel diffText;
     private JLabel livesText;
-    private JButton startButton;
+    private JLabel timerLabel;
     private int i = 300;
     
     private Timer Timer;
@@ -76,11 +76,11 @@ public class MainView extends JPanel implements ActionListener{
         livesText = new JLabel("");
         add(livesText,Border.EAST);
         
-        startButton = new JButton("Push to start game");
-        startButton.addActionListener(this);
-        add(startButton,Border.SOUTH);
+        timerLabel = new JLabel("");
+        add(timerLabel,Border.SOUTH);
         
         Timer = new Timer(1000, this);
+        init();
 
         // Configuring Player
         Player = new JLabel(new ImageIcon("src/images/Player.png"));
@@ -114,14 +114,10 @@ public class MainView extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         Object obj = e.getSource();
-        if (obj == startButton)
-        {
-            Timer.start();
-        }
         if (obj == Timer)
         {
             i = i-1;
-            startButton.setText(""+i);
+            timerLabel.setText(""+i);
             if (i == 0)
             {
                 Timer.stop();
