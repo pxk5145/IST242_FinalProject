@@ -57,6 +57,7 @@ public class MainView extends JPanel implements ActionListener{
     private int i = 300;
     
     private Timer Timer;
+    Timer Timer2;
     public Color palette;
 
     public MainView() {
@@ -80,18 +81,20 @@ public class MainView extends JPanel implements ActionListener{
         add(timerLabel,Border.SOUTH);
         
         Timer = new Timer(1000, this);
+        Timer2 = new Timer(50, this);
         init();
 
         // Configuring Player
         Player = new JLabel(new ImageIcon("src/images/Player.png"));
         zombie = new JLabel(new ImageIcon("src/images/zombie.png"));
         p = new Rectangle(300,300, 100, 75);
-        z = new Rectangle(25,300,90,75);
+        z = new Rectangle(randX(),300,90,75);
         
         Player.setBounds(300, 300, 120, 75);
         zombie.setBounds(300, 300, 120, 75);
+        
         Player.setLocation(275,515);
-        zombie.setLocation(300, 300);
+        zombie.setLocation(30, 300);
         add(Player);
         add(zombie);
 
@@ -109,6 +112,7 @@ public class MainView extends JPanel implements ActionListener{
     
     public void init(){
         Timer.start();
+        Timer2.start();
     }
 
     @Override
@@ -177,16 +181,17 @@ public class MainView extends JPanel implements ActionListener{
                 Player.setLocation(Player.getLocation().x - speed, Player.getLocation().y);
                 p.setLocation(p.getLocation().x - speed, p.getLocation().y);
             }
-            if(p.intersects(z) && Player.isVisible())
+            if(p.intersects(z))
             {
                 Player.setVisible(false);
-                if (livesVal > 0){
+                if (livesVal >= 1){
                     Player.setLocation(275,515);
                     Player.setVisible(true);
                     p.setLocation(300,300);
                     livesVal--;
                     setLives(livesVal);
                 }
+
             }
         }
     }
@@ -222,8 +227,10 @@ public class MainView extends JPanel implements ActionListener{
        int x = (int) Math.random() + 1;
        int x2 = (int) Math.random() + 1;
        int x3 = (int) Math.random() + 1;
+       int x4 = (int) Math.random() + 1;
+       int finx = x + x2 + x3 + x4;
        
-       return x;
+       return finx;
     }
 
 }

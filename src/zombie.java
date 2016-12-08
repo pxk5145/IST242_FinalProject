@@ -1,5 +1,6 @@
 
 import java.awt.Rectangle;
+import javax.swing.JLabel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,7 +12,7 @@ import java.awt.Rectangle;
  *
  * @author Shawn
  */
-public class zombie extends Rectangle{
+public class zombie extends JLabel{
     int x;
     int y;
     public zombie(int x, int y){

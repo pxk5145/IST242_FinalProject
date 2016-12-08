@@ -36,7 +36,8 @@ public class NavView extends JFrame{
         nVpanel.removeOptions();
         nVpanel.removeInstructions();
         nVpanel.removeCredits();
-        nVpanel.addMain(m_view);        
+        nVpanel.addMain(m_view); 
+        m_view.init();
     }
     
     public void switchToInstructionsPanel(InstructionsView i_view)
