@@ -4,9 +4,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -23,7 +25,7 @@ import javax.swing.Timer;
  *
  * @author Shawn
  */
-public class MainView extends JPanel{
+public class MainView extends JPanel implements ActionListener{
     
 
 
@@ -51,6 +53,8 @@ public class MainView extends JPanel{
     private JLabel playerText;
     private JLabel diffText;
     private JLabel livesText;
+    private JButton startButton;
+    private int i = 300;
     
     private Timer Timer;
     public Color palette;
@@ -71,6 +75,12 @@ public class MainView extends JPanel{
         
         livesText = new JLabel("");
         add(livesText,Border.EAST);
+        
+        startButton = new JButton("Push to start game");
+        startButton.addActionListener(this);
+        add(startButton,Border.SOUTH);
+        
+        Timer = new Timer(1000, this);
 
         // Configuring Player
         Player = new JLabel(new ImageIcon("src/images/Player.png"));
@@ -95,6 +105,24 @@ public class MainView extends JPanel{
 
         Player.getActionMap().put(RIGHT_PRESSED, new MoveAction(RIGHT));
         Player.getActionMap().put(MOVE_LEFT, new MoveAction(LEFT));
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object obj = e.getSource();
+        if (obj == startButton)
+        {
+            Timer.start();
+        }
+        if (obj == Timer)
+        {
+            i = i-1;
+            startButton.setText(""+i);
+            if (i == 0)
+            {
+                Timer.stop();
+            }
+        }
     }
 
     private class MoveAction extends AbstractAction {
