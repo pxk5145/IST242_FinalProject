@@ -106,6 +106,10 @@ public class MainView extends JPanel implements ActionListener{
         Player.getActionMap().put(RIGHT_PRESSED, new MoveAction(RIGHT));
         Player.getActionMap().put(MOVE_LEFT, new MoveAction(LEFT));
     }
+    
+    public void init(){
+        Timer.start();
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
